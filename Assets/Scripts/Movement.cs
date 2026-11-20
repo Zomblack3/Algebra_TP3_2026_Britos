@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private List<GameObject> shapes;
 
-    private int inControl;
+    public static int inControl;
 
     private void Awake()
     {
@@ -24,7 +24,6 @@ public class Movement : MonoBehaviour
     {
         HandleInput();
     }
-
 
     private void HandleInput()
     {

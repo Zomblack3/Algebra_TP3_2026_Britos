@@ -15,6 +15,10 @@ public class Grid : MonoBehaviour
     private float maxY;
     private float maxZ;
 
+    private float minX;
+    private float minY;
+    private float minZ;
+
     public int inControl = Movement.inControl;
 
     public List<Vector3> points = new List<Vector3>();
@@ -44,13 +48,27 @@ public class Grid : MonoBehaviour
                     Vector3 position = transform.position + new Vector3(x, y, z) * spacing;
 
                     points.Add(position);
+
+                    if (position.x > maxX)
+                        maxX = position.x;
+
+                    if (position.y > maxY)
+                        maxY = position.y;
+
+                    if (position.z > maxZ)
+                        maxZ = position.z;
+
+                    if (position.x < minX)
+                        minX = position.x;
+
+                    if (position.y < minY)
+                        minY = position.y;
+
+                    if (position.z < minZ)
+                        minZ = position.z;
                 }
             }
         }
-
-        maxX = points[size.x - 1].x;
-        maxY = points[size.y - 1].y;
-        maxZ = points[size.z - 1].z;
     }
 
     private void CheckCollisions()
@@ -59,7 +77,7 @@ public class Grid : MonoBehaviour
         {
             if (isOnGrid(inControl) && isOnGrid(i) && i != inControl)
             {
-                if (CheckAABB(objs[inControl].transform.position, objs[inControl].transform.localScale, objs[i].transform.position, objs[i].transform.localScale))
+                if (CheckAABB(objs[inControl].transform.position, objs[inControl].transform.position, objs[i].transform.position, objs[i].transform.localScale))
                     Debug.Log($"{objs[inControl].name} colisiono con {objs[i].name}");
             }
         }
@@ -82,11 +100,11 @@ public class Grid : MonoBehaviour
 
     private bool isOnGrid(int index)
     {
-        if (objs[index].transform.position.x < maxX && objs[index].transform.position.x >= 0)
+        if (objs[index].transform.position.x < maxX && objs[index].transform.position.x >= minX)
         {
-            if (objs[index].transform.position.y < maxY && objs[index].transform.position.y >= 0)
+            if (objs[index].transform.position.y < maxY && objs[index].transform.position.y >= minY)
             {
-                if (objs[index].transform.position.z < maxZ && objs[index].transform.position.z >= 0)
+                if (objs[index].transform.position.z < maxZ && objs[index].transform.position.z >= minZ)
                 {
                     return true;
                 }

@@ -642,6 +642,8 @@ MonoBehaviour:
   size: {x: 10, y: 10, z: 10}
   spacing: 1
   pointSize: 0.1
+  objs: []
+  inControl: 0
   points: []
 --- !u!1001 &1209421601
 PrefabInstance:
@@ -761,10 +763,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 10
+  rSpeed: 90
   shapes:
-  - {fileID: 524741074}
   - {fileID: 1880320420}
   - {fileID: 583287584}
+  - {fileID: 236522526}
+  - {fileID: 1221751345}
+  - {fileID: 1161771952}
+  - {fileID: 524741074}
 --- !u!4 &1268766860
 Transform:
   m_ObjectHideFlags: 0

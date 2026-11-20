@@ -642,7 +642,13 @@ MonoBehaviour:
   size: {x: 10, y: 10, z: 10}
   spacing: 1
   pointSize: 0.1
-  objs: []
+  objs:
+  - {fileID: 1880320420}
+  - {fileID: 583287584}
+  - {fileID: 236522526}
+  - {fileID: 1221751345}
+  - {fileID: 1161771952}
+  - {fileID: 524741074}
   inControl: 0
   points: []
 --- !u!1001 &1209421601
